@@ -54,7 +54,6 @@ This Pack includes a Splunk HEC Output. To configure it:
 ### Commit and Deploy
 Once everything is configured, perform a Commit & Deploy to enable data collection.
 
-
 ## Pack Configurable Items 
 The following are the in-Pack configurable items - review/update them as needed. 
 

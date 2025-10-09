@@ -82,6 +82,9 @@ in_duo_authentication:
     throttleRatePerSec: "0"
     breakerRulesets:
       - Duo API Ruleset
+    metadata:
+      - name: __packsource
+        value: "'cribl-duo-rest-io.duo-authentication'"
   description: Duo API for Authentication logs
   savedState: {}
   notifications: []
@@ -169,6 +172,9 @@ in_duo_activity:
     throttleRatePerSec: "0"
     breakerRulesets:
       - Duo API Ruleset
+    metadata:
+      - name: __packsource
+        value: "'cribl-duo-rest-io.duo-activity'"
   description: Duo API for Activity logs
   savedState: {}
   notifications: []
@@ -256,6 +262,9 @@ in_duo_administrator:
     throttleRatePerSec: "0"
     breakerRulesets:
       - Duo API Ruleset
+    metadata:
+      - name: __packsource
+        value: "'cribl-duo-rest-io.duo-administrator'"
   description: Duo API for Administrator logs
   savedState: {}
   notifications: []
@@ -343,6 +352,9 @@ in_duo_telephony:
     throttleRatePerSec: "0"
     breakerRulesets:
       - Duo API Ruleset
+    metadata:
+      - name: __packsource
+        value: "'cribl-duo-rest-io.duo-telephony'"
   description: Duo API for Administrator logs
   savedState: {}
   notifications: []
@@ -430,6 +442,9 @@ in_duo_offline_enrollment:
     throttleRatePerSec: "0"
     breakerRulesets:
       - Duo API Ruleset
+    metadata:
+      - name: __packsource
+        value: "'cribl-duo-rest-io.duo-enrollment'"
   description: Duo API for Administrator logs
   savedState: {}
   notifications: []
@@ -511,6 +526,9 @@ in_duo_users:
     throttleRatePerSec: "0"
     breakerRulesets:
       - Duo API Ruleset
+    metadata:
+      - name: __packsource
+        value: "'cribl-duo-rest-io.duo-users'"
   description: API v1 for Duo User data
   savedState: {}
   notifications: []
