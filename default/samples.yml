@@ -1,0 +1,30 @@
+afZU2v:
+  sampleName: duo_telephony_docs_sample.log
+  created: 1759169266608
+  size: 1372
+  numEvents: 3
+f4GFRn:
+  sampleName: duo_offline_enrollment_docs_sample.log
+  created: 1759170196779
+  size: 1372
+  numEvents: 3
+2Ngxlm:
+  sampleName: duo_admin_docs_sample.log
+  created: 1759170646268
+  size: 840
+  numEvents: 2
+yxVacN:
+  sampleName: duo_authentication_docs_sample.log
+  created: 1759171047006
+  size: 7263
+  numEvents: 2
+jLNXk8:
+  sampleName: duo_activity_docs_sample.log
+  created: 1759171897015
+  size: 4301
+  numEvents: 2
+55eLWl:
+  sampleName: duo_users_docs_sample.log
+  created: 1759172129425
+  size: 5206
+  numEvents: 2

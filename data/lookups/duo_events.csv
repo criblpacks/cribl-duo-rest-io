@@ -1,0 +1,337 @@
+action,description,event_type,event_action
+accepted_dtm_opt_in,Admin accepted Duo Trust Monitor terms,administrator,keep
+accountsapi_request_ip_denied,Accounts API request blocked due to IP restriction,administrator,keep
+activation_begin,New admin begins setup using activation link,administrator,keep
+activation_complete,New admin completes account setup,administrator,keep
+activation_create_link,New admin activation link created,administrator,keep
+activation_delete_link,Admin activation link deleted,administrator,keep
+activation_send_email,Emailed activation link to admin,administrator,keep
+activation_set_password,New admin sets login password during initial setup,administrator,keep
+ad_connection_config_download,Admin downloaded authproxy.cfg file for an Active Directory sync connection,administrator,keep
+ad_sync_begin,Active Directory Sync started,administrator,keep
+ad_sync_by_user_begin,Active Directory Sync of individual user started,administrator,keep
+ad_sync_by_user_finish,Active Directory Sync of individual user completed,administrator,keep
+ad_sync_config_download,Active Directory Sync configuration download,administrator,keep
+ad_sync_failed,Active Directory Sync failed,administrator,keep
+ad_sync_finish,Active Directory Sync completed,administrator,keep
+admin_2fa_error,Administrator issue completing secondary authentication,administrator,keep
+admin_account_switch,Administrator switched to this account from another Duo account,administrator,keep
+admin_activate_duo_push,Administrator activates an admin's 2FA device for Duo Push,administrator,keep
+admin_activation_create,An admin activation link was created,administrator,keep
+admin_activation_delete,An admin activation link was deleted,administrator,keep
+admin_create,Added administrator,administrator,keep
+admin_delete,Deleted administrator,administrator,keep
+admin_lockout,Administrator locked out after too many failed login attempts,administrator,keep
+admin_login_error,Administrator issue completing primary password or SAML authentication,administrator,keep
+admin_login,Administrator logged in,administrator,keep
+admin_purchase_hardtokens,Administrator purchased hardtokens,administrator,keep
+admin_reactivates_duo_push,Administrator reactivates an admin's 2FA device for Duo Push,administrator,keep
+admin_reset_password,Administrator changed password via emailed reset link,administrator,keep
+admin_restore,Administrator controlled by an admin directory sync is restored from pending deletion,administrator,keep
+admin_scso_enforcement_change,Updated Cisco Security Cloud Sign On (SCSO) enforcement status,administrator,keep
+admin_self_activate,Administrator self-activated through an activation link,administrator,keep
+admin_send_reset_password_email,Password reset email sent to administrator,administrator,keep
+admin_single_sign_on_cert_create,Generated a new certificate for admin SSO,administrator,keep
+admin_single_sign_on_cert_delete,Deleted a certificate for admin SSO,administrator,keep
+admin_single_sign_on_cert_update,Modified a certificate for admin SSO,administrator,keep
+admin_single_sign_on_update,Modified admin SSO configuration,administrator,keep
+admin_sync_create,Created an admin directory sync,administrator,keep
+admin_sync_delete,Deleted an admin directory sync,administrator,keep
+admin_sync_pause,Paused an admin directory sync,administrator,keep
+admin_sync_resume,Resumed an admin directory sync,administrator,keep
+admin_sync_update,Updated an admin directory sync,administrator,keep
+admin_unexpire,Expired administrator's inactivity was cleared,administrator,keep
+admin_update,Modified administrator,administrator,keep
+admin_view_password_reset_url,"Viewed the ""Forgot Password"" URL",administrator,keep
+adminapi_request_ip_denied,Admin API request blocked due to IP restriction,administrator,keep
+administrative_unit_create,Added an administrative unit,administrator,keep
+administrative_unit_delete,Deleted an administrative unit,administrator,keep
+administrative_unit_update,Updated an administrative unit,administrator,keep
+authproxy_hide,An Authentication Proxy was hidden on the Authentication Proxy Dashboard,administrator,keep
+authproxy_show,An Authentication Proxy was unhidden and shown on the Authentication Proxy Dashboard,administrator,keep
+authproxy_update,An Authentication Proxy's name and/or description was updated on the Authentication Proxy Dashboard,administrator,keep
+blacklist_trusted_endpoint,Endpoint added to deny list,administrator,keep
+branding_draft_delete,Deleted draft custom branding,administrator,keep
+branding_draft_update,Updated draft custom branding,administrator,keep
+branding_draft_users_update,Updated test users for draft custom branding,administrator,keep
+branding_update,Updated custom branding,administrator,keep
+bypass_create,Bypass code created for a user,administrator,keep
+bypass_delete,Bypass code deleted,administrator,keep
+bypass_view,Viewed a user's bypass code,administrator,keep
+cloudsso_add_authproxy,Added an Authentication Proxy for Single Sign-On,administrator,keep
+cloudsso_add_bridge_attribute,Added a bridge attribute for Single Sign-On,administrator,keep
+cloudsso_add_email_domain,Added a Single Sign-On email domain,administrator,keep
+cloudsso_add_ldap_authsource,Added Active Directory authentication source for Single Sign-On,administrator,keep
+cloudsso_add_saml_authsource,Added SAML authentication source for Single Sign-On,administrator,keep
+cloudsso_create_launcher,Created Duo Central,administrator,keep
+cloudsso_create_tiles,Added Duo Central tile(s),administrator,keep
+cloudsso_delete_authproxy,Deleted an Authentication Proxy for Single Sign-On,administrator,keep
+cloudsso_delete_bridge_attribute,Deleted a bridge attribute for Single Sign-On,administrator,keep
+cloudsso_email_domain,Deleted a Single Sign-On email domain,administrator,keep
+cloudsso_delete_ldap_authsource,Deleted Active Directory authentication source for Single Sign-On,administrator,keep
+cloudsso_delete_saml_authsource,Deleted SAML authentication source for Single Sign-On,administrator,keep
+cloudsso_delete_tile,Deleted Duo Central tile,administrator,keep
+cloudsso_disable_authsource,Disabled authentication source for Single Sign-On,administrator,keep
+cloudsso_enable_authsource,Enabled authentication source for Single Sign-On,administrator,keep
+cloudsso_enable_single_sign_on,Enabled Single Sign-On,administrator,keep
+cloudsso_modify_tile,Modified Duo Central tile,administrator,keep
+cloudsso_oauth_cc_get_client_secret,Viewed OAuth 2.0 client credentials client secret,administrator,keep
+cloudsso_oauth_cc_reset_client_secret,Reset OAuth 2.0 client credentials client secret,administrator,keep
+cloudsso_oidc_get_client_secret,Viewed OIDC relying party client secret,administrator,keep
+cloudsso_oidc_reset_client_secret,Reset OIDC relying party client secret,administrator,keep
+cloudsso_update_bridge_attribute,Updated a bridge attribute for Single Sign-On,administrator,keep
+cloudsso_update_launcher,Updated Duo Central,administrator,keep
+cloudsso_update_ldap_authsource,Updated Single Sign-On Active Directory configuration,administrator,keep
+cloudsso_update_oauth_client_credentials,Updated a generic OAuth 2.0 SSO integration,administrator,keep
+cloudsso_update_relying_party,Updated a generic OIDC SSO integration,administrator,keep
+cloudsso_update_saml_authsource,Updated Single Sign-On SAML configuration,administrator,keep
+cloudsso_update_service_provider,"Updated ""Service Provider"" information for an SSO integration",administrator,keep
+cloudsso_verify_email_domain,Verified a Single Sign-On email domain,administrator,keep
+create_child_customer,Created child customer,administrator,keep
+credits_update,Added telephony credits,administrator,keep
+custom_messaging_update,Updated custom help desk message in the global settings,administrator,keep
+customer_update,Modified settings,administrator,keep
+delete_child_customer,Deleted child customer,administrator,keep
+delete_enroll_code,Deleted an enrollment link,administrator,keep
+deregister_devices,Deregistered device(s),administrator,keep
+deviceapi_request_ip_denied,Device API request blocked due to IP restriction,administrator,keep
+directory_create,Added directory for sync,administrator,keep
+directory_delete,Deleted directory,administrator,keep
+directory_groups_update,Modified directory sync groups,administrator,keep
+directory_sync_pause,Scheduled directory sync paused by administrator or due to expired Entra ID authorization,administrator,keep
+directory_sync_resume,Scheduled directory sync resumed by administrator or after Entra ID reauthorization,administrator,keep
+directory_update,Modified directory sync,administrator,keep
+dtm_modify_user,Modified user from Trust Monitor,administrator,keep
+edition_update,Update edition,administrator,keep
+entra_dir_connection_authorize,Authorized Entra ID directory connection,administrator,keep
+entra_directory_create,Added Entra ID directory,administrator,keep
+entra_directory_delete,Deleted Entra ID directory,administrator,keep
+entra_directory_groups_update,Modified Entra ID directory groups,administrator,keep
+entra_directory_update,Modified Entra ID directory,administrator,keep
+entra_sync_begin,Full Entra ID Sync started,administrator,keep
+entra_sync_by_user_begin,Entra ID Sync started (sync by username),administrator,keep
+entra_sync_by_user_finish,Entra ID Sync completed (sync by username),administrator,keep
+entra_sync_finish,Entra ID Sync completed,administrator,keep
+entra_sync_fail,Entra ID Sync failed,administrator,keep
+feature_add,Added feature,administrator,keep
+feature_delete,Deleted feature,administrator,keep
+group_create,Added group,administrator,keep
+group_delete,Deleted group,administrator,keep
+group_update,Updated group,administrator,keep
+hardtoken_create,Created hardware tokens,administrator,keep
+hardtoken_delete,Deleted hardware token,administrator,keep
+hardtoken_resync,Resynchronized hardware token,administrator,keep
+hardtoken_update,Modified hardware token,administrator,keep
+inactive_admin_expiration_change,Changed inactive admins setting,administrator,keep
+integration_create,Added application,administrator,keep
+integration_delete,Deleted application,administrator,keep
+integration_download_saml_verification_public_key,Downloaded public key for SAML verification,administrator,keep
+integration_group_policy_add,Add application group policy,administrator,keep
+integration_group_policy_remove,Remove application group policy,administrator,keep
+integration_group_policy_reorder,Reordered application group policies,administrator,keep
+integration_group_policy_update,Modified application group policy members,administrator,keep
+integration_policy_assign,Assign application policy,administrator,keep
+integration_policy_unassign,Unassign application policy,administrator,keep
+integration_skey_bulk_view,Viewed application's secret key or client ID via Admin API,administrator,keep
+integration_skey_view,Viewed application's secret key or client ID in the Admin Panel,administrator,keep
+integration_sso_saml_metadata_import,Imported SAML metadata for an SSO integration,administrator,keep
+integration_universal_prompt_update,Update integration to use the Universal Prompt from the Universal Prompt Progress report page,administrator,keep
+integration_update,Modified application,administrator,keep
+ldap_connection_skey_reset,Reset secret key for Active Directory or OpenLDAP sync connection,administrator,keep
+ldap_connection_skey_view,View secret key for Active Directory or OpenLDAP sync connection,administrator,keep
+ldap_directory_conn_create,Created an OpenLDAP sync connection,administrator,keep
+ldap_directory_conn_delete,Deleted an OpenLDAP sync connection,administrator,keep
+ldap_directory_conn_modify,Modified an OpenLDAP sync connection,administrator,keep
+management_system_activate_device_cache,Duo Trusted Endpoints device cache activated,administrator,keep
+management_system_add_devices,Devices added to a Duo Trusted Endpoints device cache,administrator,keep
+management_system_create,Duo Trusted Endpoints integration created,administrator,keep
+management_system_delete_device_cache,Duo Trusted Endpoints device cache deleted,administrator,keep
+management_system_delete_devices,Devices deleted from a Duo Trusted Endpoints device cache,administrator,keep
+management_system_delete,Duo Trusted Endpoints integration deleted,administrator,keep
+management_system_download_device_api_script,Duo Device API script downloaded,administrator,keep
+management_system_sync_failure,Duo Trusted Endpoints integration sync failed,administrator,keep
+management_system_sync_success,Duo Trusted Endpoints integration sync succeeded,administrator,keep
+management_system_update,Duo Trusted Endpoints integration updated,administrator,keep
+management_system_view_password,Duo Trusted Endpoints integration password viewed,administrator,keep
+management_system_view_token,Duo Trusted Endpoints integration token viewed,administrator,keep
+migrate_dag_app,Converted Duo Access Gateway application to Duo Single Sign-On,administrator,keep
+oort_accepted_pds,Accepted Cisco Identity Intelligence privacy statement,administrator,keep
+oort_credentials_create,Cisco Identity Intelligence OIDC credentials created,administrator,keep
+oort_credentials_delete,Cisco Identity Intelligence OIDC credentials deleted,administrator,keep
+oort_integration_create,Cisco Identity Intelligence integration created,administrator,keep
+oort_integration_delete,Cisco Identity Intelligence integration deleted,administrator,keep
+oort_integration_update,Cisco Identity Intelligence integration updated,administrator,keep
+oort_tenant_create,Cisco Identity Intelligence tenant created,administrator,keep
+oort_tenant_delete,Cisco Identity Intelligence tenant deleted,administrator,keep
+oort_tenant_update,Cisco Identity Intelligence tenant updated,administrator,keep
+oort_webhook_register,Cisco Identity Intelligence webhook registered,administrator,keep
+openldap_connection_config_download,Admin downloaded authproxy.cfg file for an OpenLDAP sync connection,administrator,keep
+openldap_sync_begin,OpenLDAP Sync started,administrator,keep
+openldap_sync_by_user_begin,OpenLDAP Sync of individual user started,administrator,keep
+openldap_sync_by_user_finish,OpenLDAP Sync of individual user completed,administrator,keep
+openldap_sync_config_download,OpenLDAP Sync configuration download,administrator,keep
+openldap_sync_failed,OpenLDAP Sync failed,administrator,keep
+openldap_sync_finish,OpenLDAP Sync completed,administrator,keep
+phone_associate,Associated phone with user,administrator,keep
+phone_create,Added phone,administrator,keep
+phone_delete,Deleted phone,administrator,keep
+phone_disassociate,Disassociated phone from user,administrator,keep
+phone_update,Modified phone,administrator,keep
+policy_bulk_delete,Bulk deleted policies,administrator,keep
+policy_create,Added a custom policy,administrator,keep
+policy_delete,Deleted a custom policy,administrator,keep
+policy_update,Modified a policy,administrator,keep
+push_verify_approved,Verification push approved,administrator,keep
+push_verify_failed,Verification push failed,administrator,keep
+pwl_initial_activation,Admin accepted Duo Passwordless terms,administrator,keep
+redirect_to_child_account,Redirected to child account,administrator,keep
+regen_mobile,Generated a new Duo Mobile Activation Code,administrator,keep
+regen_sms,Generated new SMS passcodes and sent them to a phone,administrator,keep
+reparenting_request_response,Responded to reparenting request,administrator,keep
+resend_enroll_codes,Resent all enrollment links,administrator,keep
+reset_admin_auth_attempts,Reset an admin's authentication attempt failure count,administrator,keep
+revoke_session,Refresh token session revoked,administrator,keep
+send_enroll_code,Sent an enrollment link,administrator,keep
+ssp_policy_enforcement_disabled,Disabled policy for self-service portal,administrator,keep
+ssp_policy_enforcement_enabled,Enabled policy for self-service portal,administrator,keep
+subscription_update,Modified subscription,administrator,keep
+triage_security_event,Security Event triaged,administrator,keep
+u2ftoken_create,Created U2F token,administrator,keep
+u2ftoken_delete,Deleted U2F token,administrator,keep
+update_admin_factor_restrictions,Modified admin factor restrictions,administrator,keep
+update_customers_vat_info,Updated VAT information,administrator,keep
+update_firmographics,Updated firmographics,administrator,keep
+update_passport_configuration,Updated Passport configuration,administrator,keep
+update_risk_profile,Updated Risk Profile,administrator,keep
+updated_risk_profile,Admin modified Trust Monitor risk profile,administrator,keep
+user_bulk_activate,Bulk mobile activation sent,administrator,keep
+user_bulk_enroll,Bulk enrollment,administrator,keep
+user_create,Added user,administrator,keep
+user_delete,Deleted user,administrator,keep
+user_import,Imported users,administrator,keep
+user_lockout_cleared,Unlocked user account,administrator,keep
+user_pending_delete,Marked user for deletion,administrator,keep
+user_restore,Restored deleted user,administrator,keep
+user_update,Modified user,administrator,keep
+webauthncredential_create,Created a WebAuthn credential,administrator,keep
+webauthncredential_delete,Deleted a WebAuthn credential,administrator,keep
+webauthncredential_rename,Renamed a WebAuthn credential,administrator,keep
+whitelist_trusted_endpoint,Endpoint removed from deny list,administrator,keep
+admin_activate_duo_push,An administrator or user activates a 2FA device for Duo Push.,activity,keep
+admin_factor_restrictions,An administrator updated factor restrictions.,activity,keep
+admin_login,Administrator logged in.,activity,keep
+admin_reactivates_duo_push,Administrator reactivates an admin or user 2FA device for Duo Push.,activity,keep
+admin_reset_password,Administrator changed their own password.,activity,keep
+admin_send_reset_password_email,Password reset email sent to administrator.,activity,keep
+azure_directory_create,Entra ID (Azure) directory created.,activity,keep
+azure_directory_delete,Entra ID (Azure) directory deleted.,activity,keep
+azure_directory_update,Entra ID (Azure) directory updated.,activity,keep
+azure_sync_begin,Entra ID (Azure) sync began.,activity,keep
+azure_sync_fail,Entra ID (Azure) sync failed.,activity,keep
+azure_sync_finish,Entra ID (Azure) sync finished.,activity,keep
+bypass_create,An administrator created one or more bypass codes.,activity,keep
+bypass_delete,An administrator deleted a bypass code.,activity,keep
+bypass_view,An administrator viewed a bypass code.,activity,keep
+cloudsso_add_authproxy,Added an Authentication Proxy for Single Sign-On.,activity,keep
+cloudsso_add_bridge_attribute,Added bridge attribute for Single Sign-On.,activity,keep
+cloudsso_add_email_domain,Added Single Sign-On Email Domain.,activity,keep
+cloudsso_add_ldap_authsource,Added Active Directory authentication source for Single Sign-On.,activity,keep
+cloudsso_add_ldap_authsource_and_accept_tcs,Added Active Directory authentication source for Single Sign-On and accepted terms & conditions.,activity,keep
+cloudsso_add_saml_authsource,Added SAML authentication source for Single Sign-On.,activity,keep
+cloudsso_create_launcher,Created Duo Central.,activity,keep
+cloudsso_create_routing_rule,Create routing rule for Single Sign-On.,activity,keep
+cloudsso_create_tiles,Added Duo Central tiles.,activity,keep
+cloudsso_delete_authproxy,Deleted Authentication Proxy for Single Sign-On.,activity,keep
+cloudsso_delete_bridge_attribute,Deleted bridge attribute for Single Sign-On.,activity,keep
+cloudsso_delete_email_domain,Deleted Single Sign-On Email Domain.,activity,keep
+cloudsso_delete_ldap_authsource,Deleted Active Directory authentication source for Single Sign-On.,activity,keep
+cloudsso_delete_routing_rule,Delete routing rule for Single Sign-On.,activity,keep
+cloudsso_delete_saml_authsource,Deleted SAML authentication source for Single Sign-On.,activity,keep
+cloudsso_delete_tile,Deleted Duo Central tile.,activity,keep
+cloudsso_disable_authsource,Disabled authentication source for Single Sign-On.,activity,keep
+cloudsso_enable_authsource,Enabled authentication source for Single Sign-On.,activity,keep
+cloudsso_enable_single_sign_on,Enabled Single Sign-On.,activity,keep
+cloudsso_modify_tile,Modified Duo Central tile.,activity,keep
+cloudsso_oauth_cc_get_client_secret,Viewed OAuth 2.0 client credentials client secret.,activity,keep
+cloudsso_oauth_cc_reset_client_secret,Reset OAuth 2.0 client credentials client secret.,activity,keep
+cloudsso_oidc_get_client_secret,Viewed OIDC relying party client secret.,activity,keep
+cloudsso_oidc_reset_client_secret,Reset OIDC relying party client secret.,activity,keep
+cloudsso_update_bridge_attribute,Updated bridge attribute for Single Sign-On.,activity,keep
+cloudsso_update_launcher,Updated Duo Central.,activity,keep
+cloudsso_update_ldap_authsource,Updated Single Sign-On Active Directory configuration.,activity,keep
+cloudsso_update_oauth_client_credentials,Updated a generic OAuth 2.0 SSO integration.,activity,keep
+cloudsso_update_relying_party,Updated a generic OIDC SSO integration.,activity,keep
+cloudsso_update_routing_rule,Update routing rule for Single Sign-On.,activity,keep
+cloudsso_update_saml_authsource,Updated SAML authentication source for Single Sign-On.,activity,keep
+cloudsso_verify_email_domain,Verified Single Sign-On Email Domain.,activity,keep
+deregister_devices,"De-registering devices, including all associated users, that are registered with Duo Desktop.",activity,keep
+device_change_enrollment_summary_notification_answered,Device activity enrollment summary notification answered by user.,activity,keep
+device_change_enrollment_summary_,Device activity enrollment summary notification answered by user and email sent to admin.,activity,keep
+notification_answered_notify_admin,,activity,keep
+device_change_enrollment_summary_notification_send,Device activity enrollment summary notification sent.,activity,keep
+device_change_notification_answered,Device activity notification answered by user.,activity,keep
+device_change_notification_answered_notify_admin,Device activity notification answered by user and email sent to admin.,activity,keep
+device_change_notification_create,Device activity notification created.,activity,keep
+device_change_notification_send,Device activity notification sent.,activity,keep
+group_create,An administrator created a group.,activity,keep
+group_delete,An administrator deleted a group.,activity,keep
+group_update,An administrator updated a group.,activity,keep
+hardtoken_create,Created a hardware token.,activity,keep
+hardtoken_delete,Deleted a hardware token.,activity,keep
+hardtoken_resync,Resynchronized a hardware token.,activity,keep
+hardtoken_update,Modified a hardware token.,activity,keep
+integration_create,An administrator created an application.,activity,keep
+integration_delete,An administrator deleted an application.,activity,keep
+integration_group_policy_add,An administrator group policy was added to the application.,activity,keep
+integration_group_policy_remove,An administrator group policy was removed from the application.,activity,keep
+integration_policy_assign,An administrator assigned a policy to an application.,activity,keep
+integration_policy_unassign,An administrator unassigned a policy from an application.,activity,keep
+integration_skey_bulk_view,"Secret keys, presented in plain text.",activity,keep
+integration_skey_view,Application's secret key was copied in plain text in the Admin Panel or viewed via the Admin API in plain text.,activity,keep
+integration_update,An administrator updated an application.,activity,keep
+log_export_start,Log export started.,activity,keep
+log_export_complete,Log export completed.,activity,keep
+log_export_failure,Log export failed.,activity,keep
+management_system_activate_device_cache,Duo Trusted Endpoints device cache activated.,activity,keep
+management_system_active_device_cache_add_devices,Devices added to an active Duo Trusted Endpoints device cache.,activity,keep
+management_system_active_device_cache_delete_devices,Devices deleted from an active Duo Trusted Endpoints device cache.,activity,keep
+management_system_active_device_cache_edit_devices,Devices edited in an active Duo Trusted Endpoints device cache.,activity,keep
+management_system_add_devices,Devices added to a Duo Trusted Endpoints device cache.,activity,keep
+management_system_create,Duo Trusted Endpoints integration created.,activity,keep
+management_system_delete,Duo Trusted Endpoints integration deleted.,activity,keep
+management_system_delete_devices,Devices deleted from a Duo Trusted Endpoints device cache.,activity,keep
+management_system_device_cache_add_devices,Devices added to a Duo Trusted Endpoints device cache.,activity,keep
+management_system_device_cache_create,Duo Trusted Endpoints device cache created.,activity,keep
+management_system_device_cache_delete,Duo Trusted Endpoints device cache deleted.,activity,keep
+management_system_device_cache_delete_devices,Devices deleted from Duo Trusted Endpoints device cache.,activity,keep
+management_system_download_device_api_script,Duo Device API script downloaded.,activity,keep
+management_system_pkcs12_enrollment,Duo Trusted Endpoints certificate enrolled.,activity,keep
+management_system_sync_failure,Duo Trusted Endpoints integration sync failed.,activity,keep
+management_system_sync_success,Duo Trusted Endpoints integration sync succeeded.,activity,keep
+management_system_update,Duo Trusted Endpoints integration updated.,activity,keep
+management_system_view_password,Duo Trusted Endpoints integration password viewed.,activity,keep
+management_system_view_token,Duo Trusted Endpoints integration token viewed.,activity,keep
+phone_activation_code_regenerated,An activation code has been generated for a phone.,activity,keep
+phone_associate,Existing phone has been added to a user.,activity,keep
+phone_create,Added phone.,activity,keep
+phone_delete,A phone with no users associated with it has been deleted.,activity,keep
+phone_disassociate,"An existing phone has been removed from a user, but still has other users attached.",activity,keep
+phone_new_sms_passcode,SMS code has been generated and sent to a user.,activity,keep
+phone_update,Modified phone.,activity,keep
+policy_create,Created a policy.,activity,keep
+policy_delete,Deleted a policy.,activity,keep
+policy_update,Modified a policy.,activity,keep
+u2ftoken_create,Created U2F token.,activity,keep
+u2ftoken_delete,Deleted U2F token.,activity,keep
+user_adminapi_lockout,User was locked out from Admin API.,activity,keep
+user_create,User created.,activity,keep
+user_delete,User deleted.,activity,keep
+user_import,User imported.,activity,keep
+user_lockout_cleared,User had their locked out status cleared.,activity,keep
+user_not_enrolled_lockout,"User was unenrolled beyond the number of days specified in the ""Unenrolled users"" setting.",activity,keep
+user_pending_delete,Deleted user pending.,activity,keep
+user_restore,Deleted user restored.,activity,keep
+user_update,Existing user details updated.,activity,keep
+webauthncredential_create,Created WebAuthn authenticator and associated it with the user.,activity,keep
+webauthncredential_delete,Deleted WebAuthn authenticator.,activity,keep
+webauthncredential_rename,Renamed WebAuthn authenticator.,activity,keep

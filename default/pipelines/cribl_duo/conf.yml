@@ -1,0 +1,263 @@
+output: default
+streamtags: []
+groups:
+  SbRroP:
+    name: Initial Parsing and Timestamping
+    description: Parses the JSON object so that we can start working with the
+      fields, sets _time to the correct value
+    index: 3
+  SDNEgH:
+    name: (Optional) Reduction Pipeline
+    description: Pass the events through the reduction pipelines to handle event reductions.
+    index: 4
+    disabled: true
+  KsiiV5:
+    name: Outputs
+    description: Select the output required, if nothing enabled standard JSON will be sent
+    index: 5
+    disabled: true
+asyncFuncTimeout: 1000
+functions:
+  - id: comment
+    filter: "true"
+    disabled: null
+    conf:
+      comment: >-
+        This conditioning pipeline is for use on the Duo Rest Events API
+        endpoint. The Pack will normalize the JSON data from the collector and
+        provide optional reduction techniques. 
+
+
+        There are two current available output formats for the data: 
+            1. Standard JSON that is formatted and timestamp normalized. 
+            3. Splunk, Index and sourcetype can be changed within the pipeline, however default values are set in Knowledge > Variables
+  - id: comment
+    filter: "true"
+    disabled: null
+    conf:
+      comment: For additional details, see this pack's README under Settings.
+  - id: comment
+    filter: "true"
+    disabled: null
+    conf:
+      comment: "Author: Cribl Packs Team"
+  - id: serde
+    filter: "true"
+    disabled: false
+    conf:
+      mode: extract
+      type: json
+      srcField: _raw
+      fieldFilterExpr: value !== '' && value !== null
+      remove: []
+      keep: []
+    description: Parse the JSON from _raw
+    groupId: SbRroP
+  - id: eval
+    filter: "true"
+    disabled: false
+    conf:
+      remove:
+        - _raw
+    description: Remove intermediate fields
+    groupId: SbRroP
+  - id: code
+    filter: "true"
+    disabled: null
+    conf:
+      maxNumOfIterations: 5000
+      activeLogSampleRate: 1
+      useUniqueLogChannel: true
+      code: >-
+        // Step 1: Remove empty arrays and objects directly from top level
+
+        const fieldsToCheck = ['aliases', 'custom_attributes', 'desktop_authenticators', 'desktoptokens', 'groups', 'tokens', 'u2ftokens', 'webauthncredentials', 'phones'];
+
+
+        fieldsToCheck.forEach(field => {
+            if (__e[field] !== undefined) {
+                if (Array.isArray(__e[field]) && __e[field].length === 0) {
+                    delete __e[field];
+                } else if (typeof __e[field] === 'object' && __e[field] !== null && Object.keys(__e[field]).length === 0) {
+                    delete __e[field];
+                }
+            }
+        });
+
+
+        // Step 2: Directly remove unknown values using delete
+
+        function removeUnknownFields(obj, path = '') {
+            if (typeof obj === 'object' && obj !== null && !Array.isArray(obj)) {
+                const keysToDelete = [];
+                for (const [key, value] of Object.entries(obj)) {
+                    if (value === "unknown" || value === "UNKNOWN") {
+                        keysToDelete.push(key);
+                    } else if (typeof value === 'object' && value !== null) {
+                        removeUnknownFields(value, path + '.' + key);
+                    }
+                }
+                // Delete the keys after iteration to avoid modifying during iteration
+                keysToDelete.forEach(key => delete obj[key]);
+            }
+        }
+
+
+        // Step 3: Clean JSON strings
+
+        function cleanJsonString(jsonString) {
+            function removeEmptyAndNull(obj) {
+                if (Array.isArray(obj)) {
+                    const filtered = obj.filter(item => item !== null && item !== undefined && item !== "" && item !== "unknown" && item !== "UNKNOWN");
+                    return filtered.length > 0 ? filtered : undefined;
+                } else if (typeof obj === 'object' && obj !== null) {
+                    const cleaned = {};
+                    for (const [key, value] of Object.entries(obj)) {
+                        if (value === null || value === undefined || value === "" || value === "unknown" || value === "UNKNOWN") {
+                            continue;
+                        }
+                        if (Array.isArray(value) && value.length === 0) {
+                            continue;
+                        }
+                        if (typeof value === 'object' && !Array.isArray(value) && Object.keys(value).length === 0) {
+                            continue;
+                        }
+                        
+                        const cleanedValue = removeEmptyAndNull(value);
+                        if (cleanedValue !== undefined) {
+                            cleaned[key] = cleanedValue;
+                        }
+                    }
+                    return Object.keys(cleaned).length > 0 ? cleaned : undefined;
+                }
+                return obj;
+            }
+
+            try {
+                const parsed = JSON.parse(jsonString);
+                const cleaned = removeEmptyAndNull(parsed);
+                return cleaned !== undefined ? JSON.stringify(cleaned) : jsonString;
+            } catch (e) {
+                return jsonString;
+            }
+        }
+
+
+        // Clean JSON strings first
+
+        if (__e.description) {
+            __e.description = cleanJsonString(__e.description);
+        }
+
+
+        if (__e.actor && __e.actor.details) {
+            __e.actor.details = cleanJsonString(__e.actor.details);
+        }
+
+
+        if (__e.target && __e.target.details) {
+            __e.target.details = cleanJsonString(__e.target.details);
+        }
+
+
+        // Apply the unknown field removal to the main event object
+
+        removeUnknownFields(__e);
+
+
+        // Also remove empty arrays that were specified in the original code
+
+        if (Array.isArray(__e.user.groups) && __e.user.groups.length === 0) {
+            delete __e.user.groups;
+        }
+    groupId: SbRroP
+    description: Removed all empty and null fields from the data
+  - id: lookup
+    filter: "true"
+    disabled: null
+    conf:
+      dbLookup: false
+      matchMode: exact
+      reloadPeriodSec: -1
+      inFields:
+        - eventField: action
+          lookupField: action
+        - eventField: action.name
+          lookupField: action
+      addToEvent: false
+      ignoreCase: false
+      outFields:
+        - lookupField: event_action
+          eventField: __event_action
+          defaultValue: keep
+      file: duo_events.csv
+    groupId: SbRroP
+    description: Appends the __event_action to the event
+  - id: auto_timestamp
+    filter: "true"
+    disabled: null
+    conf:
+      srcField: timestamp
+      dstField: _time
+      defaultTimezone: UTC
+      timeExpression: time.getTime() / 1000
+      offset: 0
+      maxLen: 150
+      defaultTime: now
+      latestDateAllowed: +1week
+      earliestDateAllowed: -420weeks
+    groupId: SbRroP
+  - id: chain
+    filter: "true"
+    disabled: true
+    conf:
+      processor: cribl_duo_reductions
+    description: (Optional) Pass the events through the reduction pipelines to
+      handle event reductions.
+    groupId: SDNEgH
+  - id: comment
+    filter: "true"
+    disabled: true
+    conf:
+      comment: Output to Splunk
+    groupId: KsiiV5
+  - id: serialize
+    filter: "true"
+    disabled: true
+    conf:
+      type: json
+      dstField: _raw
+      fields:
+        - "!_*"
+        - "!cribl*"
+        - "!source"
+        - "!host"
+        - "*"
+    groupId: KsiiV5
+    description: Serialize JSON to _raw
+  - id: eval
+    filter: "true"
+    disabled: true
+    conf:
+      add:
+        - disabled: false
+          value: "index ? index : C.vars.default_splunk_index"
+          name: index
+        - disabled: false
+          value: "sourcetype ? sourcetype : C.vars.default_splunk_sourcetype"
+          name: sourcetype
+        - disabled: false
+          value: "source ? source : C.vars.default_splunk_source"
+          name: source
+      keep:
+        - _*
+        - cribl*
+        - source
+        - host
+        - index
+        - sourcetype
+      remove:
+        - "*"
+    groupId: KsiiV5
+    description: Sets the index and sourcetype for Splunk output
+description: Pipeline for parsing, formatting and filtering Duo Rest API events.
