@@ -18,7 +18,7 @@ routes:
     outputExpression: null
     filter: __packsource.includes('cribl-duo-rest-io.duo')
     clones: []
-    output: duo-splunk-hec
+    output: default
   - id: default
     name: default
     final: true
