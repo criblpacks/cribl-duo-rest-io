@@ -39,7 +39,7 @@ The Pack includes (optional) Splunk output processing that maps data to the Splu
 * Replace the `API-HOSTNAME` in the **Collect URL** parameter of each collector with the **API hostname** value provided in the Duo Admin API portal.
 * Perform a Run > Preview to verify that each Collector works correctly.
 * Schedule data ingestion by clicking the **Schedule** button under the Actions column of the Collector and toggle the **Enabled** button to enable data flow. Modify the cron schedule if required:
-  * Dhe default for log data is set to run every 5 minutes. 
+  * The default for log data is to run every 5 minutes. 
   * The default for the users inventory data is to run once, nightly.
 
 ### Configure your Destination/Update Pack Routes

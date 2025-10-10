@@ -68,7 +68,7 @@ in_duo_authentication:
           value: "`${Date.now()}`"
       collectRequestHeaders:
         - name: x-duo-date
-          value: changeme
+          value: "C.Time.strftime(Date.now()/1000, '%a, %d %b %Y %H:%M:%S -0000')"
       hmacFunctionId: duo-hmac
     destructive: false
     encoding: utf8
@@ -158,7 +158,7 @@ in_duo_activity:
           value: "`${Date.now()}`"
       collectRequestHeaders:
         - name: x-duo-date
-          value: changeme
+          value: "C.Time.strftime(Date.now()/1000, '%a, %d %b %Y %H:%M:%S -0000')"
       hmacFunctionId: duo-hmac
     destructive: false
     encoding: utf8
@@ -248,7 +248,7 @@ in_duo_administrator:
           value: "`${Date.now()}`"
       collectRequestHeaders:
         - name: x-duo-date
-          value: changeme
+          value: "C.Time.strftime(Date.now()/1000, '%a, %d %b %Y %H:%M:%S -0000')"
       hmacFunctionId: duo-hmac
     destructive: false
     encoding: utf8
@@ -338,7 +338,7 @@ in_duo_telephony:
           value: "`${Date.now()}`"
       collectRequestHeaders:
         - name: x-duo-date
-          value: changeme
+          value: "C.Time.strftime(Date.now()/1000, '%a, %d %b %Y %H:%M:%S -0000')"
       hmacFunctionId: duo-hmac
     destructive: false
     encoding: utf8
@@ -428,7 +428,7 @@ in_duo_offline_enrollment:
           value: "`${Date.now()}`"
       collectRequestHeaders:
         - name: x-duo-date
-          value: changeme
+          value: "C.Time.strftime(Date.now()/1000, '%a, %d %b %Y %H:%M:%S -0000')"
       hmacFunctionId: duo-hmac
     destructive: false
     encoding: utf8
@@ -512,7 +512,7 @@ in_duo_users:
       collectRequestParams: []
       collectRequestHeaders:
         - name: x-duo-date
-          value: changeme
+          value: "C.Time.strftime(Date.now()/1000, '%a, %d %b %Y %H:%M:%S -0000')"
       hmacFunctionId: duo-hmac
     destructive: false
     encoding: utf8
