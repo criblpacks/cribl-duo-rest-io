@@ -63,9 +63,11 @@ in_duo_authentication:
       collectUrl: "'https://API-HOSTNAME.duosecurity.com/admin/v2/logs/authentication'"
       collectRequestParams:
         - name: mintime
-          value: "`${(state.latestTime || earliest || 0) * 1000}`"
+          value: "`${((state.latestTime || earliest) * 1000) || (Date.now()-(1000*60*60*24*30))}`"
         - name: maxtime
           value: "`${Date.now()}`"
+        - name: limit
+          value: "1000"
       collectRequestHeaders:
         - name: x-duo-date
           value: "C.Time.strftime(Date.now()/1000, '%a, %d %b %Y %H:%M:%S -0000')"
@@ -153,9 +155,11 @@ in_duo_activity:
       collectUrl: "'https://API-HOSTNAME.duosecurity.com/admin/v2/logs/activity'"
       collectRequestParams:
         - name: mintime
-          value: "`${(state.latestTime || earliest || 0) * 1000}`"
+          value: "`${((state.latestTime || earliest) * 1000) || (Date.now()-(1000*60*60*24*30))}`"
         - name: maxtime
           value: "`${Date.now()}`"
+        - name: limit
+          value: "1000"
       collectRequestHeaders:
         - name: x-duo-date
           value: "C.Time.strftime(Date.now()/1000, '%a, %d %b %Y %H:%M:%S -0000')"
@@ -243,9 +247,7 @@ in_duo_administrator:
       collectUrl: "'https://API-HOSTNAME.duosecurity.com/admin/v1/logs/administrator'"
       collectRequestParams:
         - name: mintime
-          value: "`${(state.latestTime || earliest || 0) * 1000}`"
-        - name: maxtime
-          value: "`${Date.now()}`"
+          value: "`${((state.latestTime || earliest)) || Math.floor((Date.now()/1000-(60*60*24*7)))}`"
       collectRequestHeaders:
         - name: x-duo-date
           value: "C.Time.strftime(Date.now()/1000, '%a, %d %b %Y %H:%M:%S -0000')"
@@ -333,9 +335,11 @@ in_duo_telephony:
       collectUrl: "'https://API-HOSTNAME.duosecurity.com/admin/v2/logs/telephony'"
       collectRequestParams:
         - name: mintime
-          value: "`${(state.latestTime || earliest || 0) * 1000}`"
+          value: "`${((state.latestTime || earliest) * 1000) || (Date.now()-(1000*60*60*24*30))}`"
         - name: maxtime
           value: "`${Date.now()}`"
+        - name: limit
+          value: "1000"
       collectRequestHeaders:
         - name: x-duo-date
           value: "C.Time.strftime(Date.now()/1000, '%a, %d %b %Y %H:%M:%S -0000')"
@@ -423,9 +427,7 @@ in_duo_offline_enrollment:
       collectUrl: "'https://API-HOSTNAME.duosecurity.com/admin/v1/logs/offline_enrollment'"
       collectRequestParams:
         - name: mintime
-          value: "`${(state.latestTime || earliest || 0) * 1000}`"
-        - name: maxtime
-          value: "`${Date.now()}`"
+          value: "`${((state.latestTime || earliest)) || Math.floor((Date.now()/1000-(60*60*24*7)))}`"
       collectRequestHeaders:
         - name: x-duo-date
           value: "C.Time.strftime(Date.now()/1000, '%a, %d %b %Y %H:%M:%S -0000')"
@@ -509,7 +511,9 @@ in_duo_users:
       __scheduling:
         stateTracking: {}
       collectUrl: "'https://API-HOSTNAME.duosecurity.com/admin/v1/users'"
-      collectRequestParams: []
+      collectRequestParams:
+        - name: limit
+          value: "1000"
       collectRequestHeaders:
         - name: x-duo-date
           value: "C.Time.strftime(Date.now()/1000, '%a, %d %b %Y %H:%M:%S -0000')"
