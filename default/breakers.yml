@@ -1,22 +1,20 @@
 Duo API Ruleset:
-  lib: custom
   minRawLength: 256
-  description: Event breakers for Duo Rest Collector
   rules:
     - condition: "true"
       type: json_array
-      timestampAnchorRegex: /^/
+      timestampAnchorRegex: /(ts|timestamp)/
       timestamp:
         type: auto
-        length: 150
-      timestampTimezone: local
+        length: 1500
+      timestampTimezone: UTC
       timestampEarliest: -420weeks
       timestampLatest: +1week
-      maxEventBytes: 51200
+      maxEventBytes: 134217728
       disabled: false
       parserEnabled: false
       shouldUseDataRaw: false
       jsonExtractAll: false
       eventBreakerRegex: /[\n\r]+(?!\s)/
-      name: Duo Administrator
-      jsonArrayField: response
+      name: Duo JSON Logs
+  lib: custom

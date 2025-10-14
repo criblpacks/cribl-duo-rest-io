@@ -34,7 +34,13 @@ in_duo_authentication:
         discoverType: none
       collectMethod: get
       pagination:
-        type: none
+        type: request_offset
+        offsetField: metadata.next_offset
+        limitField: limit
+        limit: 500
+        maxPages: 0
+        zeroIndexed: false
+        totalRecordField: metadata.total_objects
       authentication: hmac
       timeout: 0
       useRoundRobinDns: false
@@ -66,8 +72,6 @@ in_duo_authentication:
           value: "`${((state.latestTime || earliest) * 1000) || (Date.now()-(1000*60*60*24*30))}`"
         - name: maxtime
           value: "`${Date.now()}`"
-        - name: limit
-          value: "1000"
       collectRequestHeaders:
         - name: x-duo-date
           value: "C.Time.strftime(Date.now()/1000, '%a, %d %b %Y %H:%M:%S -0000')"
@@ -126,7 +130,13 @@ in_duo_activity:
         discoverType: none
       collectMethod: get
       pagination:
-        type: none
+        type: request_offset
+        offsetField: metadata.next_offset
+        limitField: limit
+        limit: 500
+        maxPages: 0
+        zeroIndexed: false
+        totalRecordField: metadata.total_objects
       authentication: hmac
       timeout: 0
       useRoundRobinDns: false
@@ -158,8 +168,6 @@ in_duo_activity:
           value: "`${((state.latestTime || earliest) * 1000) || (Date.now()-(1000*60*60*24*30))}`"
         - name: maxtime
           value: "`${Date.now()}`"
-        - name: limit
-          value: "1000"
       collectRequestHeaders:
         - name: x-duo-date
           value: "C.Time.strftime(Date.now()/1000, '%a, %d %b %Y %H:%M:%S -0000')"
@@ -306,7 +314,13 @@ in_duo_telephony:
         discoverType: none
       collectMethod: get
       pagination:
-        type: none
+        type: request_offset
+        offsetField: metadata.next_offset
+        limitField: limit
+        limit: 500
+        maxPages: 0
+        zeroIndexed: false
+        totalRecordField: metadata.total_objects
       authentication: hmac
       timeout: 0
       useRoundRobinDns: false
@@ -338,8 +352,6 @@ in_duo_telephony:
           value: "`${((state.latestTime || earliest) * 1000) || (Date.now()-(1000*60*60*24*30))}`"
         - name: maxtime
           value: "`${Date.now()}`"
-        - name: limit
-          value: "1000"
       collectRequestHeaders:
         - name: x-duo-date
           value: "C.Time.strftime(Date.now()/1000, '%a, %d %b %Y %H:%M:%S -0000')"
@@ -513,7 +525,7 @@ in_duo_users:
       collectUrl: "'https://API-HOSTNAME.duosecurity.com/admin/v1/users'"
       collectRequestParams:
         - name: limit
-          value: "1000"
+          value: "300"
       collectRequestHeaders:
         - name: x-duo-date
           value: "C.Time.strftime(Date.now()/1000, '%a, %d %b %Y %H:%M:%S -0000')"
