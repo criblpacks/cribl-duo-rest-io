@@ -70,6 +70,11 @@ Upgrading certain Cribl Packs using the same Pack ID can have unintended consequ
 
 ## Release Notes
 
+### Version 1.0.1
+* Added Collector Pagination where applicable
+* Collector bug fixes
+* Event Breaker timestamp fix
+
 ### Version 1.0.0
 Initial release
 
