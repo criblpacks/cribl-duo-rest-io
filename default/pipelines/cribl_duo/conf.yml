@@ -241,13 +241,13 @@ functions:
     conf:
       add:
         - disabled: false
-          value: "index ? index : C.vars.default_splunk_index"
+          value: "index ? index : C.vars['default_splunk_index']"
           name: index
         - disabled: false
-          value: "sourcetype ? sourcetype : C.vars.default_splunk_sourcetype"
+          value: "sourcetype ? sourcetype : C.vars['default_splunk_sourcetype']"
           name: sourcetype
         - disabled: false
-          value: "source ? source : C.vars.default_splunk_source"
+          value: "source ? source : C.vars['default_splunk_source']"
           name: source
       keep:
         - _*
