@@ -5,7 +5,7 @@ groups:
     name: 1. Drop, Sample, Suppress
     description: Drop, sample or suppress events based on event_actions set in
       duo_events.csv lookup. To modify please click Knowledge > Lookups >
-      1password_audit_events.csv inside the pack.
+      duo_events.csv inside the pack.
     index: 3
     disabled: false
   rA3Bo0:
