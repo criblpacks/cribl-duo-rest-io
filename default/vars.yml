@@ -12,10 +12,3 @@ default_splunk_source:
   value: "'sbg_duo_input://cribl_duo_api'"
   description: Do NOT change if forwarding data to Splunk. This is required for
     the Cisco Security Cloud Splunk TA to work correctly.
-splunk_hec_endpoint:
-  type: string
-  lib: custom
-  value: "'http://myhost.example.com:8088/services/collector/event'"
-  description: Change this to your Splunk environments HEC URL endpoint. For more
-    information see
-    https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector
