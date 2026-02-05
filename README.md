@@ -36,20 +36,14 @@ The Pack includes (optional) Splunk output processing that maps data to the Splu
    * `in_duo_offline_enrollment`: This API collects [Offline Enrollment](https://duo.com/docs/adminapi#offline-enrollment-logs) logs and is currently at V1.
    * `in_duo_users`: This API collects [Users](https://duo.com/docs/adminapi#users) data and is currently at V1. This API pulls in user inventory, rather than log data.
 
-* Replace the `API-HOSTNAME` in the **Collect URL** parameter of each collector with the **API hostname** value provided in the Duo Admin API portal.
-* Perform a Run > Preview to verify that each Collector works correctly.
+* Update the `duo_api_hostname` variable with the **API hostname** value provided in the Duo Admin API portal.
+* Perform a **Commit & Deploy** (required for Preview to work) and then **Run > Preview** of each Collector to verify that they work correctly.
 * Schedule data ingestion by clicking the **Schedule** button under the Actions column of the Collector and toggle the **Enabled** button to enable data flow. Modify the cron schedule if required:
   * The default for log data is to run every 5 minutes. 
   * The default for the users inventory data is to run once, nightly.
 
 ### Configure your Destination/Update Pack Routes
 To ensure proper data routing, you must make a choice: retain the current setting to use the Default Destination defined by your Worker Group, or define a new Destination directly inside this pack and adjust the pack's route accordingly.
-
-This Pack includes a Splunk HEC Output. To configure it:
-
-* Create a [HEC token in Splunk](https://help.splunk.com/en/splunk-enterprise/get-started/get-data-in/10.0/get-data-with-http-event-collector/set-up-and-use-http-event-collector-in-splunk-web).
-* Populate the **Splunk HEC Endpoints** parameter with the Splunk HEC URL.
-* Populate the **HEC Auth token** with the token created in Splunk
 
 ### Commit and Deploy
 Once everything is configured, perform a Commit & Deploy to enable data collection.
@@ -60,6 +54,7 @@ The following are the in-Pack configurable items - review/update them as needed.
 ### Variables
 
 The Pack has the following variables:
+* `duo_api_hostname`: Your Duo API hostname/subdomaion
 * `default_splunk_index`: Default index for the Splunk output - defaults to `duo`.
 * `default_splunk_source`: Default source for the Splunk output - defaults to `sbg_duo_input://cribl_duo_api`.
 * `default_splunk_sourcetype`: Default sourcetype for the Splunk output - defaults to `duo:api`.
@@ -69,6 +64,11 @@ The Pack has the following variables:
 Upgrading certain Cribl Packs using the same Pack ID can have unintended consequences. See [Upgrading an Existing Pack](https://docs.cribl.io/stream/packs#upgrading) for details.
 
 ## Release Notes
+
+### Version 1.1.0
+* Made Duo API Hostname configuration a variable to simplify Collector configuration
+* Fixed bug in State Tracking that caused Collectors to fail with versions > 4.15.0
+* Removed default HEC Output - causes warning in 4.16.x
 
 ### Version 1.0.1
 * Added Collector Pagination where applicable

@@ -48,6 +48,7 @@ in_duo_authentication:
       decodeUrl: false
       rejectUnauthorized: true
       captureHeaders: false
+      stopOnEmptyResults: false
       safeHeaders:
         - authorization
         - Authorization
@@ -66,10 +67,11 @@ in_duo_authentication:
         retryHeaderName: retry-after
       __scheduling:
         stateTracking: {}
-      collectUrl: "'https://API-HOSTNAME.duosecurity.com/admin/v2/logs/authentication'"
+      collectUrl: "`https://${C.vars['duo_api_hostname']}.duosecurity.com/admin/v2/logs/authentication`"
       collectRequestParams:
         - name: mintime
-          value: "`${((state.latestTime || earliest) * 1000) || (Date.now()-(1000*60*60*24*30))}`"
+          value: "`${Math.floor(((state.latestTime || earliest) * 1000) ||
+            (Date.now()-(1000*60*60*24*14)))}`"
         - name: maxtime
           value: "`${Date.now()}`"
       collectRequestHeaders:
@@ -144,6 +146,7 @@ in_duo_activity:
       decodeUrl: false
       rejectUnauthorized: true
       captureHeaders: false
+      stopOnEmptyResults: false
       safeHeaders:
         - authorization
         - Authorization
@@ -162,10 +165,11 @@ in_duo_activity:
         retryHeaderName: retry-after
       __scheduling:
         stateTracking: {}
-      collectUrl: "'https://API-HOSTNAME.duosecurity.com/admin/v2/logs/activity'"
+      collectUrl: "`https://${C.vars['duo_api_hostname']}.duosecurity.com/admin/v2/logs/activity`"
       collectRequestParams:
         - name: mintime
-          value: "`${((state.latestTime || earliest) * 1000) || (Date.now()-(1000*60*60*24*30))}`"
+          value: "`${Math.floor(((state.latestTime || earliest) * 1000) ||
+            (Date.now()-(1000*60*60*24*30)))}`"
         - name: maxtime
           value: "`${Date.now()}`"
       collectRequestHeaders:
@@ -234,6 +238,7 @@ in_duo_administrator:
       decodeUrl: false
       rejectUnauthorized: true
       captureHeaders: false
+      stopOnEmptyResults: false
       safeHeaders:
         - authorization
         - Authorization
@@ -252,10 +257,11 @@ in_duo_administrator:
         retryHeaderName: retry-after
       __scheduling:
         stateTracking: {}
-      collectUrl: "'https://API-HOSTNAME.duosecurity.com/admin/v1/logs/administrator'"
+      collectUrl: "`https://${C.vars['duo_api_hostname']}.duosecurity.com/admin/v1/logs/administrator`"
       collectRequestParams:
         - name: mintime
-          value: "`${((state.latestTime || earliest)) || Math.floor((Date.now()/1000-(60*60*24*7)))}`"
+          value: "`${Math.floor(((state.latestTime || earliest)) ||
+            (Date.now()/1000-(60*60*24*7)))}`"
       collectRequestHeaders:
         - name: x-duo-date
           value: "C.Time.strftime(Date.now()/1000, '%a, %d %b %Y %H:%M:%S -0000')"
@@ -328,6 +334,7 @@ in_duo_telephony:
       decodeUrl: false
       rejectUnauthorized: true
       captureHeaders: false
+      stopOnEmptyResults: false
       safeHeaders:
         - authorization
         - Authorization
@@ -346,10 +353,11 @@ in_duo_telephony:
         retryHeaderName: retry-after
       __scheduling:
         stateTracking: {}
-      collectUrl: "'https://API-HOSTNAME.duosecurity.com/admin/v2/logs/telephony'"
+      collectUrl: "`https://${C.vars['duo_api_hostname']}.duosecurity.com/admin/v2/logs/telephony`"
       collectRequestParams:
         - name: mintime
-          value: "`${((state.latestTime || earliest) * 1000) || (Date.now()-(1000*60*60*24*30))}`"
+          value: "`${Math.floor(((state.latestTime || earliest) * 1000) ||
+            (Date.now()-(1000*60*60*24*30)))}`"
         - name: maxtime
           value: "`${Date.now()}`"
       collectRequestHeaders:
@@ -418,6 +426,7 @@ in_duo_offline_enrollment:
       decodeUrl: false
       rejectUnauthorized: true
       captureHeaders: false
+      stopOnEmptyResults: false
       safeHeaders:
         - authorization
         - Authorization
@@ -436,10 +445,11 @@ in_duo_offline_enrollment:
         retryHeaderName: retry-after
       __scheduling:
         stateTracking: {}
-      collectUrl: "'https://API-HOSTNAME.duosecurity.com/admin/v1/logs/offline_enrollment'"
+      collectUrl: "`https://${C.vars['duo_api_hostname']}.duosecurity.com/admin/v1/logs/offline_enrollment`"
       collectRequestParams:
         - name: mintime
-          value: "`${((state.latestTime || earliest)) || Math.floor((Date.now()/1000-(60*60*24*7)))}`"
+          value: "`${Math.floor(((state.latestTime || earliest)) ||
+            (Date.now()/1000-(60*60*24*7)))}`"
       collectRequestHeaders:
         - name: x-duo-date
           value: "C.Time.strftime(Date.now()/1000, '%a, %d %b %Y %H:%M:%S -0000')"
@@ -506,6 +516,7 @@ in_duo_users:
       decodeUrl: false
       rejectUnauthorized: true
       captureHeaders: false
+      stopOnEmptyResults: false
       safeHeaders: []
       retryRules:
         type: backoff
@@ -522,7 +533,7 @@ in_duo_users:
         retryHeaderName: retry-after
       __scheduling:
         stateTracking: {}
-      collectUrl: "'https://API-HOSTNAME.duosecurity.com/admin/v1/users'"
+      collectUrl: "`https://${C.vars['duo_api_hostname']}.duosecurity.com/admin/v1/users`"
       collectRequestParams:
         - name: limit
           value: "300"
