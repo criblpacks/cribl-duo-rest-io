@@ -67,7 +67,7 @@ in_duo_authentication:
         retryHeaderName: retry-after
       __scheduling:
         stateTracking: {}
-      collectUrl: "'https://API-HOSTNAME.duosecurity.com/admin/v2/logs/authentication'"
+      collectUrl: "`https://${C.vars['duo_api_hostname']}.duosecurity.com/admin/v2/logs/authentication`"
       collectRequestParams:
         - name: mintime
           value: "`${Math.floor(((state.latestTime || earliest) * 1000) ||
@@ -165,7 +165,7 @@ in_duo_activity:
         retryHeaderName: retry-after
       __scheduling:
         stateTracking: {}
-      collectUrl: "'https://API-HOSTNAME.duosecurity.com/admin/v2/logs/activity'"
+      collectUrl: "`https://${C.vars['duo_api_hostname']}.duosecurity.com/admin/v2/logs/activity`"
       collectRequestParams:
         - name: mintime
           value: "`${Math.floor(((state.latestTime || earliest) * 1000) ||
@@ -257,7 +257,7 @@ in_duo_administrator:
         retryHeaderName: retry-after
       __scheduling:
         stateTracking: {}
-      collectUrl: "'https://API-HOSTNAME.duosecurity.com/admin/v1/logs/administrator'"
+      collectUrl: "`https://${C.vars['duo_api_hostname']}.duosecurity.com/admin/v1/logs/administrator`"
       collectRequestParams:
         - name: mintime
           value: "`${Math.floor(((state.latestTime || earliest)) ||
@@ -353,7 +353,7 @@ in_duo_telephony:
         retryHeaderName: retry-after
       __scheduling:
         stateTracking: {}
-      collectUrl: "'https://API-HOSTNAME.duosecurity.com/admin/v2/logs/telephony'"
+      collectUrl: "`https://${C.vars['duo_api_hostname']}.duosecurity.com/admin/v2/logs/telephony`"
       collectRequestParams:
         - name: mintime
           value: "`${Math.floor(((state.latestTime || earliest) * 1000) ||
@@ -445,7 +445,7 @@ in_duo_offline_enrollment:
         retryHeaderName: retry-after
       __scheduling:
         stateTracking: {}
-      collectUrl: "'https://API-HOSTNAME.duosecurity.com/admin/v1/logs/offline_enrollment'"
+      collectUrl: "`https://${C.vars['duo_api_hostname']}.duosecurity.com/admin/v1/logs/offline_enrollment`"
       collectRequestParams:
         - name: mintime
           value: "`${Math.floor(((state.latestTime || earliest)) ||
@@ -533,7 +533,7 @@ in_duo_users:
         retryHeaderName: retry-after
       __scheduling:
         stateTracking: {}
-      collectUrl: "'https://API-HOSTNAME.duosecurity.com/admin/v1/users'"
+      collectUrl: "`https://${C.vars['duo_api_hostname']}.duosecurity.com/admin/v1/users`"
       collectRequestParams:
         - name: limit
           value: "300"
