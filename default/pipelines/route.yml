@@ -18,7 +18,8 @@ routes:
     outputExpression: null
     filter: __packsource.includes('cribl-duo-rest-io.duo')
     clones: []
-    output: default
+    targetContext: group
+    output: __group
   - id: default
     name: default
     final: true
