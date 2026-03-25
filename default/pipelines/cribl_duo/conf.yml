@@ -162,7 +162,11 @@ functions:
 
         // Apply the unknown field removal to the main event object
 
-        removeUnknownFields(__e);
+        // Commented out to prevent infinite recursion issue with __* fields
+
+        // This function only reduced _raw size between 0%-4% - the other code sections reduce between 18%-20%
+        
+        // removeUnknownFields(__e);
 
 
         // Also remove empty arrays that were specified in the original code
