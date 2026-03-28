@@ -67,9 +67,9 @@ Upgrading certain Cribl Packs using the same Pack ID can have unintended consequ
 
 ## Release Notes
 
-### Version 1.1.1
+### Version 2.0.0
 * Updated Route Destinations to "Send to Worker Group Routes". See above for details.
-* Updated recursive Code function to skip internal `__*` fields to prevent infinite recursion and errors on 4.17+.”
+* Updated Code function to skip internal `__*` fields to prevent infinite recursion and errors on 4.17+.”
 
 ### Version 1.1.0
 * Made Duo API Hostname configuration a variable to simplify Collector configuration
